@@ -1,0 +1,107 @@
+﻿<UserControl x:Class="Mdm.Windows.Desktop.Views.UnlockQueueSheetView"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:assets="clr-namespace:Mdm.Windows.Desktop.Assets"
+             mc:Ignorable="d"  
+             Padding="10"
+             Style="{DynamicResource DialogStyle}"
+             d:DesignHeight="110" d:DesignWidth="200">
+    <UserControl.Resources>
+        
+        <Style x:Key="Title" TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="Filson"/>
+            <Setter Property="Foreground" Value="{DynamicResource ColorAccentForeground}"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        
+        <Style TargetType="{x:Type PasswordBox}">
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="MaxWidth" Value="48"/>
+            <Setter Property="MaxLength" Value="1"/>
+            <Setter Property="Foreground" Value="{DynamicResource ColorDialogForeground}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource ColorDialogForeground}"/>
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+            <Setter Property="CaretBrush" Value="{DynamicResource ColorDialogForeground}"/>
+            <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource ColorButtonBorder}"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>  
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Padding" Value="3"/>
+            <Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <StackPanel>
+                            <AdornedElementPlaceholder x:Name="placeholder" />
+                            <TextBlock FontSize="11" FontStyle="Italic" Foreground="Red"
+                                       Text="{Binding ElementName=placeholder, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}" />
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid HorizontalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="64"/>
+            <ColumnDefinition Width="64"/>
+            <ColumnDefinition Width="64"/>
+            <ColumnDefinition Width="64"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="72"/>
+            <RowDefinition Height="56"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+
+        <TextBlock Grid.Column="0" Grid.Row="0"  Grid.ColumnSpan="4" Style="{DynamicResource Title}"  >Enter passcode</TextBlock>
+
+        <PasswordBox Grid.Column="0" 
+                     Grid.Row="1" 
+                     x:Name="pwBox1"
+                     PreviewTextInput="PasswordBox_PreviewTextInput"
+                     KeyUp="PasswordBox_KeyUp"
+                     assets:PasswordHelper.Attach="True"
+                     assets:PasswordHelper.Password="{Binding Digit1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, TargetNullValue=''}"></PasswordBox>
+
+        <PasswordBox Grid.Column="1" 
+                     Grid.Row="1" 
+                     x:Name="pwBox2"
+                     PreviewTextInput="PasswordBox_PreviewTextInput"
+                     KeyUp="PasswordBox_KeyUp"
+                     assets:PasswordHelper.Attach="True"
+                     assets:PasswordHelper.Password="{Binding Digit2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, TargetNullValue=''}"></PasswordBox>
+
+        <PasswordBox Grid.Column="2" 
+                     Grid.Row="1" 
+                     x:Name="pwBox3"
+                     PreviewTextInput="PasswordBox_PreviewTextInput"
+                     KeyUp="PasswordBox_KeyUp"
+                     assets:PasswordHelper.Attach="True"
+                     assets:PasswordHelper.Password="{Binding Digit3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, TargetNullValue=''}"></PasswordBox>
+
+        <PasswordBox Grid.Column="3" 
+                     Grid.Row="1" 
+                     x:Name="pwBox4"
+                     PreviewTextInput="PasswordBox_PreviewTextInput"
+                     assets:PasswordHelper.Attach="True"
+                     assets:PasswordHelper.Password="{Binding Digit4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, TargetNullValue=''}"></PasswordBox>
+
+        <TextBlock Grid.Column="0" Grid.Row="2"  Grid.ColumnSpan="4" Style="{DynamicResource ErrorStyle}" HorizontalAlignment="Center"
+                   Visibility="{Binding HasError, Converter={StaticResource booleanToVisibilityConverter}}">Failed to unlock</TextBlock>
+        
+        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <Button Command="{Binding CancelCommand}" Style="{DynamicResource AccentTextButtonStyle}">Cancel</Button>
+            <Button Command="{Binding UnlockCommand}" Style="{DynamicResource PrimaryTextButtonStyle}">Unlock</Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

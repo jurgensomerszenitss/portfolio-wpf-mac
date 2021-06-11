@@ -1,0 +1,15 @@
+﻿<Window x:Class="Mdm.Windows.Desktop.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Mdm.Windows.Desktop"
+         xmlns:views="clr-namespace:Mdm.Windows.Desktop.Views"
+        mc:Ignorable="d"
+         BorderBrush="{DynamicResource ColorMenuBackground}"
+        BorderThickness="1"
+        WindowStyle="SingleBorderWindow" Height="640" Width="320" ResizeMode="NoResize" ShowInTaskbar="False">
+    <DockPanel LastChildFill="True">
+        <views:LoginView x:Name="loginView"/>
+    </DockPanel>
+</Window>

@@ -1,0 +1,75 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Mdm.Windows.Desktop.Assets">
+
+    <SolidColorBrush x:Key="ColorMenuBackground" Color="#FF2D2D2D"/>
+    <SolidColorBrush x:Key="ColorMenuForeground" Color="#FFCACACA"/>
+
+    <SolidColorBrush x:Key="ColorQueueSheetForeground" Color="#FFFBFBFB"/>
+    <SolidColorBrush x:Key="ColorQueueSheetBackground" Color="#FF2D2D2D"/>
+    <SolidColorBrush x:Key="ColorQueueSheetForegroundSelected" Color="#FF40d7ff"/>
+    <SolidColorBrush x:Key="ColorQueueSheetBackgroundSelected" Color="#FF2D2D2D"/>
+    <SolidColorBrush x:Key="ColorQueueSheetForegroundHover" Color="#FFFBFBFB"/>
+    <SolidColorBrush x:Key="ColorQueueSheetBackgroundHover" Color="#FF2D2D2D"/>
+    <SolidColorBrush x:Key="ColorQueueSheetBorder" Color="#FF555555"/>
+    <SolidColorBrush x:Key="ColorQueueSheetLockIcon" Color="#FF555555"/>
+
+    <SolidColorBrush x:Key="ColorListForeground" Color="#FFFBFBFB"/>
+    <SolidColorBrush x:Key="ColorListAlternateForeground" Color="#FF777777"/>
+    <SolidColorBrush x:Key="ColorListBackground" Color="#FF272727"/>
+    <SolidColorBrush x:Key="ColorListBackgroundSelected" Color="#FF185362"/>
+    <SolidColorBrush x:Key="ColorListForegroundSelected" Color="#FFFBFBFB"/>
+
+    <SolidColorBrush x:Key="ColorButtonBorder" Color="#FF777777"/>
+    <SolidColorBrush x:Key="ColorButtonForeground" Color="#ff777777"/>
+    <SolidColorBrush x:Key="ColorButtonForegroundHover" Color="#ff777777"/>
+    <!--<SolidColorBrush x:Key="ColorButtonBackgroundHover" Color="#FFCBCCC7"/>
+    <SolidColorBrush x:Key="ColorButtonBackgroundActive" Color="#FFCBCCC7"/>-->
+    <SolidColorBrush x:Key="ColorButtonBackgroundHover" Color="Transparent"/>
+    <SolidColorBrush x:Key="ColorButtonBackgroundActive" Color="Transparent"/>
+    <SolidColorBrush x:Key="ColorButtonForegroundActive" Color="#FFFFFFFF"/>
+
+
+    <SolidColorBrush x:Key="ColorPrimaryButtonBackground" Color="#FF00A1C0"/>
+    <SolidColorBrush x:Key="ColorPrimaryButtonBorder" Color="#FF00A1C0"/>
+    <SolidColorBrush x:Key="ColorPrimaryButtonForeground" Color="#FFFFFFFF"/>
+    <SolidColorBrush x:Key="ColorPrimaryButtonBackgroundHover" Color="#FFCBCCC7"/>
+    <SolidColorBrush x:Key="ColorPrimaryButtonForegroundHover" Color="#ffcbccc7"/>
+    <SolidColorBrush x:Key="ColorPrimaryButtonBackgroundDisabled" Color="#19000000"/>
+    <SolidColorBrush x:Key="ColorPrimaryButtonForegroundDisabled" Color="#FF555555"/>
+
+    <SolidColorBrush x:Key="ColorAccentButtonBackground" Color="#00000000"/>
+    <SolidColorBrush x:Key="ColorAccentButtonBorder" Color="#FF777777"/>
+    <SolidColorBrush x:Key="ColorAccentButtonForeground" Color="#FF777777"/>
+    <SolidColorBrush x:Key="ColorAccentButtonBackgroundHover" Color="#FFCBCCC7"/>
+    <SolidColorBrush x:Key="ColorAccentButtonBackgroundDisabled" Color="#66CBCCC7"/>
+
+    <SolidColorBrush x:Key="ColorPrimaryForeground" Color="#FF2B2C27"/>
+    <SolidColorBrush x:Key="ColorAccentForeground" Color="#FFFFFFFF"/>
+
+    <SolidColorBrush x:Key="IconSelectedBackgroundColor" Color="#FFCBCCC7"/>
+    <SolidColorBrush x:Key="IconForegroundColor" Color="#FF999999"/>
+    <SolidColorBrush x:Key="IconDisabledForegroundColor" Color="#FFA2A2A2"/> 
+
+
+    <SolidColorBrush x:Key="ListItemSelectedForegroundColor" Color="#FFCBCCC7"/>
+    <SolidColorBrush x:Key="ListItemSelectedBackgroundColor" Color="#FF2B2C27"/>
+    <SolidColorBrush x:Key="ListItemDisabledForegroundColor" Color="#FFA2A2A2"/>
+
+    <SolidColorBrush x:Key="ColorDialogBackground" Color="#FF3D3D3D"/>
+    <SolidColorBrush x:Key="ColorDialogForeground" Color="#FF777777"/>
+    <SolidColorBrush x:Key="ColorDialogForegroundAccent" Color="#FFFFFFFF"/>
+
+    <SolidColorBrush x:Key="ColorSeparator" Color="#FF555555"/>
+
+    <SolidColorBrush x:Key="ColorCheckboxChecked" Color="#FF40D7FF"/>
+    <SolidColorBrush x:Key="ColorActiveButtonForegroundPrimary" Color="#FF40D7FF"/>
+    <SolidColorBrush x:Key="ColorActiveButtonForegroundDisabled" Color="#FF777777"/>
+
+    <SolidColorBrush x:Key="ColorLoginButtonBackground" Color="#FF2D2D2D"/>
+    <SolidColorBrush x:Key="ColorLoginFooterBackground" Color="#FF222222"/>
+    <SolidColorBrush x:Key="ColorFooterForeground" Color="#FF555555"/>
+
+    <SolidColorBrush x:Key="ColorFolderLabelForeground" Color="#FF999999"/>
+    <SolidColorBrush x:Key="ColorChildrenForeground" Color="#FF373737"/>
+</ResourceDictionary>

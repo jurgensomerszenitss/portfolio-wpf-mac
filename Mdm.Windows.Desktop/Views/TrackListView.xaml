@@ -1,0 +1,372 @@
+﻿<UserControl x:Class="Mdm.Windows.Desktop.Views.TrackListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"  
+             xmlns:enums="clr-namespace:Mdm.App.Infrastructure;assembly=Mdm.App"
+             xmlns:controls="clr-namespace:Mdm.Windows.Desktop.Assets"
+             xmlns:assets="clr-namespace:Mdm.Windows.Desktop.Assets"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+
+        <assets:InverseBooleanToVisibilityConverter x:Key="listVisibilityConverter"/>
+
+        <Style x:Key="FileListBoxStyle" TargetType="ListBox">
+            <Setter Property="Background" Value="{DynamicResource ColorListBackground}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="8" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding DisplayMode, UpdateSourceTrigger=PropertyChanged}" Value="{x:Static enums:ListDisplayMode.Icons}">
+                    <Setter Property="ItemsPanel" Value="{DynamicResource ListBoxIconTemplate}" /> 
+                    <Setter Property="ItemTemplateSelector" Value="{StaticResource queueItemIconDataTemplateSelector}"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding DisplayMode, UpdateSourceTrigger=PropertyChanged}" Value="{x:Static enums:ListDisplayMode.List}">
+                    <Setter Property="ItemsPanel" Value="{DynamicResource ListBoxListTemplate}" />
+                    <Setter Property="ItemTemplateSelector" Value="{StaticResource queueItemListDataTemplateSelector}"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="FileItemContainerStyle" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Padding" Value="0,0,0,0"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate  TargetType="{x:Type ListBoxItem}">
+                        <Border Background="Transparent" HorizontalAlignment="Stretch">
+                            <Grid x:Name="theGrid" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                                <StackPanel HorizontalAlignment="Stretch"  VerticalAlignment="Stretch">
+                                    <ContentPresenter />
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter TargetName="theGrid" Property="Background" Value="{DynamicResource ColorListBackgroundSelected}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource ColorListForegroundSelected}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="LoadingLabel">
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="FontFamily" Value="{StaticResource Filson}"/>
+            <Setter Property="Foreground" Value="{DynamicResource ColorQueueSheetForeground}"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+
+        <Style TargetType="ContentControl" x:Key="FileIconLargeStyle">
+            <Setter Property="Height" Value="72"/>
+            <Setter Property="Width" Value="72"/>
+            <Setter Property="Foreground" Value="{DynamicResource IconForegroundColor}"/>
+            <Style.Triggers>
+                <DataTrigger  Binding="{Binding Path}" Value="{x:Null}">
+                    <Setter Property="Foreground"  Value="{DynamicResource IconDisabledForegroundColor}"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="ContentControl" x:Key="FileIconSmallStyle" BasedOn="{StaticResource FileIconLargeStyle}">
+            <Setter Property="Height" Value="24"/>
+            <Setter Property="Width" Value="24"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="FileLabelTitleStyle">
+            <Setter Property="Foreground" Value="{DynamicResource ColorListForeground}"/>
+            <Setter Property="FontFamily" Value="{StaticResource Filson}"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+
+        <Style TargetType="TextBlock" x:Key="FileLabelArtistStyle">
+            <Setter Property="Foreground" Value="{DynamicResource ColorListAlternateForeground}"/>
+            <Setter Property="FontFamily" Value="{StaticResource Filson}"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+
+        <Style TargetType="Grid" x:Key="FileListFooterStyle">
+            <Setter Property="Background" Value="{DynamicResource ColorQueueSheetBackground}"/>
+            <Setter Property="MinHeight" Value="40"/>
+            <Setter Property="MaxHeight" Value="40"/>
+            <Setter Property="Margin" Value="20"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="FileListFooterLabelStyle">
+            <Setter Property="Foreground" Value="{DynamicResource ColorFooterForeground}"/>
+            <Setter Property="FontFamily" Value="{StaticResource Filson}"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="FolderLabelStyle">
+            <Setter Property="Foreground" Value="{DynamicResource ColorFolderLabelForeground}"/>
+            <Setter Property="FontFamily" Value="{StaticResource Filson}"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="Button" x:Key="ActivateButtonStyle" BasedOn="{StaticResource AccentTextButtonStyle}">
+            <Setter Property="Height" Value="40" />
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Width" Value="127"/>
+            <Setter Property="Foreground" Value="{DynamicResource ColorActiveButtonForegroundPrimary}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource ColorActiveButtonForegroundPrimary}"></Setter>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Foreground" Value="{DynamicResource ColorActiveButtonForegroundDisabled}"/>
+                    <Setter Property="BorderBrush" Value="{DynamicResource ColorActiveButtonForegroundDisabled}"/>
+                    <Setter Property="Cursor" Value="No"/>
+                </Trigger>
+            </Style.Triggers>
+            <!--<Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <ContentPresenter/>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>-->
+        </Style>
+
+
+        <DataTemplate x:Key="TrackIconDataTemplate">
+            <DockPanel LastChildFill="True"  Width="88" Height="128" Margin="2">
+                <ContentControl x:Name="icon"                              
+                                Style="{DynamicResource FileIconLargeStyle}"
+                                DockPanel.Dock="Top">
+                    <Image Source="{Binding Path=CoverUrl}" Width="80" Height="80">
+                        <Image.Clip>
+                            <EllipseGeometry Center="36 36" RadiusX="36" RadiusY="36" />
+                        </Image.Clip>
+                    </Image>
+                </ContentControl>
+                <StackPanel ToolTip="{Binding Title}" DockPanel.Dock="Bottom" Orientation="Vertical" VerticalAlignment="Center">
+                    <TextBlock x:Name="title"   Style="{DynamicResource FileLabelTitleStyle}"
+                               HorizontalAlignment="Center"
+                               ToolTip="{Binding Title}"
+                               Text="{Binding Title}"/>
+                </StackPanel>
+
+            </DockPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="FolderIconDataTemplate"> 
+            <DockPanel LastChildFill="True"  Width="88" Height="128" Margin="2">
+                <DockPanel.InputBindings>
+                    <MouseBinding Gesture="LeftDoubleClick" 
+                                  Command="{Binding DataContext.GoToFolderCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                                  CommandParameter="{Binding Title}"/>
+                </DockPanel.InputBindings>
+               
+                <ContentControl x:Name="icon"     
+                                Content="{DynamicResource ChildIconFolder}"
+                                Style="{DynamicResource FileIconLargeStyle}"
+                                DockPanel.Dock="Top">
+                    </ContentControl>
+                    <StackPanel ToolTip="{Binding Title}" DockPanel.Dock="Bottom" Orientation="Vertical" VerticalAlignment="Center">
+                        <TextBlock x:Name="title"   Style="{DynamicResource FileLabelTitleStyle}"
+                               HorizontalAlignment="Center"
+                               ToolTip="{Binding Title}"
+                               Text="{Binding Title}"/>
+                    </StackPanel> 
+                </DockPanel> 
+        </DataTemplate> 
+
+
+        <DataTemplate x:Key="TrackListDataTemplate">
+            <StackPanel Width="{Binding (FrameworkElement.ActualWidth),RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}" Orientation="Horizontal">
+                <ContentControl x:Name="icon"                              
+                                Style="{DynamicResource FileIconSmallStyle}"
+                                DockPanel.Dock="Top" Content="{DynamicResource ChildIconTrack}"/>
+                <TextBlock Style="{DynamicResource FileLabelTitleStyle}"
+                            ToolTip="{Binding Title}"
+                            Text="{Binding Title}"
+                           x:Name="title"/>
+
+                <TextBlock Style="{DynamicResource FileLabelArtistStyle}"
+                            ToolTip="{Binding Artist}"
+                            Text="{Binding Artist}"
+                           Margin="15,0,0,0"
+                           x:Name="artist"/>
+            </StackPanel> 
+        </DataTemplate>
+
+        <DataTemplate x:Key="FolderListDataTemplate"> 
+            <StackPanel Width="{Binding (FrameworkElement.ActualWidth),RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}" 
+                        Orientation="Horizontal">
+                <StackPanel.InputBindings>
+                    <MouseBinding Gesture="LeftDoubleClick" 
+                                Command="{Binding DataContext.GoToFolderCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                                CommandParameter="{Binding Title}"/>
+                </StackPanel.InputBindings>
+                <ContentControl x:Name="icon"                              
+                                Style="{DynamicResource FileIconSmallStyle}"
+                                DockPanel.Dock="Top" Content="{DynamicResource ChildIconFolder}"/>
+                <TextBlock Style="{DynamicResource FileLabelTitleStyle}"
+                            ToolTip="{Binding Title}"
+                            Text="{Binding Title}"
+                            x:Name="title"/>
+            </StackPanel> 
+        </DataTemplate>
+
+        <ItemsPanelTemplate x:Key="ListBoxIconTemplate">
+            <WrapPanel/>
+        </ItemsPanelTemplate>
+
+        <ItemsPanelTemplate x:Key="ListBoxListTemplate">
+            <StackPanel Orientation="Vertical" 
+                                Width="{Binding (FrameworkElement.ActualWidth),RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}" />
+        </ItemsPanelTemplate>
+
+    </UserControl.Resources>
+
+    <DockPanel LastChildFill="True" Background="{DynamicResource ColorQueueSheetBackground}">
+        <!-- Header -->
+        <DockPanel  DockPanel.Dock="Top" LastChildFill="True" Height="56">           
+            <DockPanel LastChildFill="True" DockPanel.Dock="Left" Margin="80,2">
+                <Button Command="{Binding SearchCommand}" Style="{DynamicResource IconBorderedButtonSearchStyle}"  DockPanel.Dock="Right">
+                    <ContentPresenter Content="{StaticResource IconSearch}"/>
+                </Button>
+                <TextBox Text="{Binding SearchText,UpdateSourceTrigger=PropertyChanged}" 
+                    Style="{DynamicResource SearchBoxStyle}"  
+                         Width="240"
+                    DockPanel.Dock="Left"/>
+            </DockPanel>
+           
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Right" VerticalAlignment="Top" Margin="0,16,24,0">
+                <Button Command="{Binding OrderCommand}">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource IconBorderedButtonStyle}">
+                            <Setter Property="Height" Value="24"/>
+                            <Setter Property="Width" Value="24"/>
+                        </Style>
+                    </Button.Style>
+                    <ContentPresenter Content="{StaticResource OrderIcon}"/>
+                </Button>
+                <Button  Command="{Binding ToggleListViewCommand}">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource IconBorderedButtonStyle}">
+                            <Setter Property="Height" Value="24"/>
+                            <Setter Property="Width" Value="24"/>
+                            <Setter Property="Margin">
+                                <Setter.Value>
+                                    <Thickness Right="0"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding DisplayMode, UpdateSourceTrigger=PropertyChanged}" Value="{x:Static enums:ListDisplayMode.List}">
+                                    <Setter Property="Foreground" Value="{DynamicResource ColorButtonForegroundActive}"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <ContentPresenter Content="{StaticResource IconList}" />
+                </Button>
+                <Button Command="{Binding ToggleIconViewCommand}">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource IconBorderedButtonStyle}">
+                            <Setter Property="Height" Value="24"/>
+                            <Setter Property="Width" Value="24"/>
+                            <Setter Property="Margin">
+                                <Setter.Value>
+                                    <Thickness Left="1"/>
+                                </Setter.Value>
+                            </Setter> 
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding DisplayMode, UpdateSourceTrigger=PropertyChanged}" Value="{x:Static enums:ListDisplayMode.Icons}">
+                                    <Setter Property="Foreground" Value="{DynamicResource ColorButtonForegroundActive}"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <ContentPresenter Content="{StaticResource IconIcons}"/>
+                </Button>
+            </StackPanel>
+        </DockPanel>
+
+        <DockPanel DockPanel.Dock="Top" Height="32">
+            <StackPanel Orientation="Horizontal">
+                <ContentControl Content="{DynamicResource FolderTitleIcon}" Height="16" MaxHeight="16" VerticalAlignment="Center" Foreground="{DynamicResource ColorFolderLabelForeground}"/>
+                <TextBlock Text="{Binding QueueSheetName}" Style="{DynamicResource FolderLabelStyle}"/>
+                <ItemsControl ItemsSource="{Binding Path}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate> 
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="/" Style="{DynamicResource FolderLabelStyle}"/>
+                                <TextBlock Text="{Binding}" Style="{DynamicResource FolderLabelStyle}"/>
+                                </StackPanel>
+                          </DataTemplate> 
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </DockPanel>
+
+        <!-- Loading label -->
+        <Grid DockPanel.Dock="Top" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="{Binding IsLoading, Converter={StaticResource booleanToVisibilityConverter}}" >
+            <TextBlock Text="Loading..." Style="{DynamicResource LoadingLabel}"></TextBlock>
+        </Grid>
+
+        <!-- Footer -->
+        <Grid DockPanel.Dock="Bottom"  Style="{DynamicResource FileListFooterStyle}"  Height="47">
+            <StackPanel Orientation="Vertical" Margin="24,0,0,0" HorizontalAlignment="Left" Width="250">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding SelectedItems.Count, ElementName=fileList,UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource FileListFooterLabelStyle}"/>
+                    <TextBlock Text="/" Style="{DynamicResource FileListFooterLabelStyle}"/>
+                    <TextBlock Text="{Binding Items.Count, ElementName=fileList,UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource FileListFooterLabelStyle}"/>
+                </StackPanel>
+                <TextBlock Text="Items Selected" Style="{DynamicResource FileListFooterLabelStyle}"/>
+            </StackPanel>
+            <Button Command="{Binding DownloadCommand}" Style="{DynamicResource ActivateButtonStyle}" HorizontalAlignment="Right" Margin="0,0,10,0" >
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock Text="Activate" VerticalAlignment="Center"/>
+                    <ContentPresenter Content="{DynamicResource DownloadIcon}" Height="20" Width="20" VerticalAlignment="Center" Margin="5"/>
+                </StackPanel>
+                
+            </Button>
+        </Grid>
+
+        <!-- List -->
+        <controls:DynamicListBox ItemsSource="{Binding Children}"  
+                                 DockPanel.Dock="Top"
+                      Style="{DynamicResource FileListBoxStyle}"
+                      ItemContainerStyle="{DynamicResource FileItemContainerStyle}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                      ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                      ScrollViewer.CanContentScroll="True" 
+                      SelectionMode="Extended" 
+                      UseLayoutRounding="False" VerticalAlignment="Stretch"
+                      BindableSelectedItems="{Binding SelectedTracks,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                      MaxSelectedItems="1"
+                      PreviewMouseLeftButtonDown="DynamicListBox_PreviewMouseLeftButtonDown"    
+                      Visibility="{Binding IsLoading, Converter={StaticResource listVisibilityConverter}}"
+                                 x:Name="fileList">
+        </controls:DynamicListBox>
+
+    </DockPanel>
+
+</UserControl>

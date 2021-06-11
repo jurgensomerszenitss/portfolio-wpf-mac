@@ -1,0 +1,8 @@
+[
+	{ "Id":"1", "Name" : "Limited series 1", "IsProtected" : "false"},
+	{ "Id":"2", "Name" : "Limited series 2", "IsProtected" : "false"},
+	{ "Id":"3", "Name" : "Limited series 3", "IsProtected" : "false"},
+	{ "Id":"4", "Name" : "Limited series 4", "IsProtected" : "true"},
+	{ "Id":"5", "Name" : "Limited series 5", "IsProtected" : "true"},
+	{ "Id":"6", "Name" : "Limited series 6", "IsProtected" : "true"}
+]

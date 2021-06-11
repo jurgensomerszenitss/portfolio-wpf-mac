@@ -1,0 +1,145 @@
+﻿<UserControl x:Class="Mdm.Windows.Desktop.Views.UserSettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:assets="clr-namespace:Mdm.Windows.Desktop.Assets"
+             mc:Ignorable="d"  
+             Padding="0"
+             Style="{DynamicResource DialogStyle}"
+             d:DesignHeight="640" d:DesignWidth="480">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="FontFamily" Value="{StaticResource Filson}"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="{DynamicResource ColorDialogForeground}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource ColorDialogForeground}"/>
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+            <Setter Property="CaretBrush" Value="{DynamicResource ColorDialogForeground}"/>
+            <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource ColorButtonBorder}"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Padding" Value="3"/>
+            <Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <StackPanel>
+                            <AdornedElementPlaceholder x:Name="placeholder" />
+                            <TextBlock FontSize="11" FontStyle="Italic" Foreground="Red"
+                                       Text="{Binding ElementName=placeholder, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}" />
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="TextLabel" TargetType="{x:Type TextBlock}">
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="{DynamicResource ColorDialogForeground}"/>
+            <Setter Property="FontFamily" Value="{StaticResource Filson}"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="ValueLabel" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource TextLabel}">
+            <Setter Property="Foreground" Value="{DynamicResource ColorDialogForegroundAccent}"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="TitleLabel">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="{StaticResource Filson}"/>
+            <Setter Property="Foreground" Value="{DynamicResource ColorQueueSheetForeground}"/>
+        </Style>
+
+        <Style x:Key="RadioButtonStyle" TargetType="{x:Type RadioButton}">
+            <Setter Property="Foreground" Value="{DynamicResource ColorDialogForeground}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource ColorDialogForeground}"/>
+            <Setter Property="FontFamily" Value="{StaticResource Filson}"/>
+            <Setter Property="Foreground" Value="{DynamicResource ColorDialogForeground}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Width" Value="58"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border CornerRadius="12" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1">
+                            <ToggleButton IsChecked="{Binding IsChecked, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                          Content="{Binding Content, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                          Foreground="{Binding Foreground,RelativeSource={RelativeSource TemplatedParent}}"
+                                          Background="{Binding Background, RelativeSource={RelativeSource TemplatedParent}}"
+                                          Command="{Binding Command, RelativeSource={RelativeSource TemplatedParent}}"
+                                          CommandParameter="{Binding CommandParameter, RelativeSource={RelativeSource TemplatedParent}}"
+                                          BorderThickness="0">
+                                <ToggleButton.Style>
+                                    <Style TargetType="{x:Type ToggleButton}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ToggleButton">
+                                                    <Border BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ToggleButton.Style>
+                            </ToggleButton>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="BorderBrush" Value="{DynamicResource ColorCheckboxChecked}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource ColorCheckboxChecked}"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+
+        <TextBlock Style="{DynamicResource TitleLabel}" Text="Settings" Margin="24,24,24,568"></TextBlock>
+
+        <TextBlock Style="{DynamicResource TextLabel}" Text="Log-in information" Margin="24,104,327,520"/>
+
+        <TextBlock Style="{DynamicResource TextLabel}" Text="Username" Margin="24,136,390,488"/>
+        <TextBlock Style="{DynamicResource ValueLabel}" Text="{Binding UserName}" Margin="91,136,150,488"/>
+        <TextBlock Style="{DynamicResource TextLabel}" Text="Last Login Date" Margin="24,156,340,468"/>
+        <TextBlock Style="{DynamicResource ValueLabel}" Text="{Binding LastLogin}" Margin="123,156,100,468"/>
+        <Button Style="{DynamicResource TextButtonStyle}" Command="{Binding LogoutCommand}" Margin="380,148,24,460">Logout</Button>
+        
+        <Separator Background="{DynamicResource ColorSeparator}" Margin="24,196,24,440" />
+        <TextBlock Style="{DynamicResource TextLabel}" Text="Account Information" Margin="24,221,316,403"/>
+        <TextBlock Style="{DynamicResource TextLabel}" Text="Business Name" Margin="24,253,360,371"/>
+        <TextBlock Style="{DynamicResource ValueLabel}" Text="{Binding BusinessName}" Margin="119,253,100,371"/>
+        <TextBlock Style="{DynamicResource TextLabel}" Text="Contract Date" Margin="24,273,360,351"/>
+        <TextBlock Style="{DynamicResource ValueLabel}" Text="{Binding ContractDate}" Margin="119,273,100,351"/>
+        <TextBlock Style="{DynamicResource TextLabel}" Text="Customer Classification" Margin="24,293,310,331"/>
+        <TextBlock Style="{DynamicResource ValueLabel}" Text="{Binding Classification}" Margin="167,293,100,331"/>
+
+        <Separator Background="{DynamicResource ColorSeparator}" Margin="24,333,24,304"/>
+
+        <TextBlock Style="{DynamicResource TextLabel}" Text="Auto Queuesheet Sync from Web" Margin="24,358,24,266" />
+        <RadioButton Style="{DynamicResource RadioButtonStyle}" IsChecked="{Binding Path=SyncInterval, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=0, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Command="{Binding SetAutoSyncCommand}" CommandParameter="0" GroupName="syncInterval" Content="OFF" Margin="24,390,410,226" Width="44"/>
+        <RadioButton Style="{DynamicResource RadioButtonStyle}" IsChecked="{Binding Path=SyncInterval, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=5, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Command="{Binding SetAutoSyncCommand}" CommandParameter="5" GroupName="syncInterval" Content="5min" Margin="76,390,353,226" Width="49"/>
+        <RadioButton Style="{DynamicResource RadioButtonStyle}" IsChecked="{Binding Path=SyncInterval, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=30, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Command="{Binding SetAutoSyncCommand}" CommandParameter="30" GroupName="syncInterval" Content="30min" Margin="133,390,287,226" Width="58"/>
+        <RadioButton Style="{DynamicResource RadioButtonStyle}" IsChecked="{Binding Path=SyncInterval, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=60, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Command="{Binding SetAutoSyncCommand}" CommandParameter="60" GroupName="syncInterval" Content="60min" Margin="199,390,214,226" Width="58"/>
+
+        <TextBlock Style="{DynamicResource TextLabel}" Text="Activation Destination Folder Setting" Margin="24,463,201,161"/>
+
+        <TextBox VerticalAlignment="Center" Text="{Binding FileLocation, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" BorderThickness="0" Margin="34,503,144,113"></TextBox>
+        <Button VerticalAlignment="Center" Command="{Binding SelectFolderCommand}" BorderBrush="White" Foreground="White" Style="{DynamicResource TextButtonStyle}" FontSize="12" 
+                Margin="380,503,32,110">Browse</Button>
+        <Border BorderThickness="1" BorderBrush="{DynamicResource ColorQueueSheetBorder}" CornerRadius="8" Margin="24,495,24,104"></Border>
+
+
+        <Button Command="{Binding CancelCommand}" Style="{DynamicResource AccentTextButtonStyle}" Margin="224,576,110,20">Cancel</Button>
+        <Button Command="{Binding SaveCommand}" Style="{DynamicResource PrimaryTextButtonStyle}" Margin="351,576,24,20">Save</Button>
+
+        <Separator Background="{DynamicResource ColorSeparator}" Margin="24,438,24,199"/>
+    </Grid>
+</UserControl>

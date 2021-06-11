@@ -1,0 +1,459 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Mdm.Windows.Desktop.Assets">
+
+    
+
+    <Viewbox x:Shared="false"  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" x:Key="FolderIcon">
+        <Canvas Name="svg135" Width="24" Height="24">
+            <Canvas.RenderTransform>
+                <TranslateTransform X="0" Y="0"/>
+            </Canvas.RenderTransform>
+            <Canvas.Resources/>
+            <!--Unknown tag: metadata-->
+            <!--Unknown tag: sodipodi:namedview-->
+            <Canvas Name="g133">
+                <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path127" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ListBoxItem, Mode=FindAncestor}}" StrokeLineJoin="Round" StrokeStartLineCap="Round" StrokeEndLineCap="Round">
+                    <Path.Data>
+                        <PathGeometry Figures="M12 12.45L4.5 8.45 12 4.5 19.5 8.45z" FillRule="EvenOdd"/>
+                    </Path.Data>
+                </Path>
+                <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path129" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ListBoxItem, Mode=FindAncestor}}" StrokeLineJoin="Round" StrokeStartLineCap="Round" StrokeEndLineCap="Round">
+                    <Path.Data>
+                        <PathGeometry Figures="M19.5 12L12 16 4.5 12" FillRule="EvenOdd"/>
+                    </Path.Data>
+                </Path>
+                <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path131" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ListBoxItem, Mode=FindAncestor}}" StrokeLineJoin="Round" StrokeStartLineCap="Round" StrokeEndLineCap="Round">
+                    <Path.Data>
+                        <PathGeometry Figures="M19.5 15.5L12 19.5 4.5 15.5" FillRule="EvenOdd"/>
+                    </Path.Data>
+                </Path>
+            </Canvas>
+        </Canvas>
+    </Viewbox>
+
+    <Viewbox x:Shared="false"  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" x:Key="FolderTitleIcon">
+        <Canvas Name="svg135" Width="24" Height="24">
+            <Canvas.RenderTransform>
+                <TranslateTransform X="0" Y="0"/>
+            </Canvas.RenderTransform>
+            <Canvas.Resources/>
+            <!--Unknown tag: metadata-->
+            <!--Unknown tag: sodipodi:namedview-->
+            <Canvas Name="g133">
+                <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path127" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ContentControl, Mode=FindAncestor}}" StrokeLineJoin="Round" StrokeStartLineCap="Round" StrokeEndLineCap="Round">
+                    <Path.Data>
+                        <PathGeometry Figures="M12 12.45L4.5 8.45 12 4.5 19.5 8.45z" FillRule="EvenOdd"/>
+                    </Path.Data>
+                </Path>
+                <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path129" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ContentControl, Mode=FindAncestor}}" StrokeLineJoin="Round" StrokeStartLineCap="Round" StrokeEndLineCap="Round">
+                    <Path.Data>
+                        <PathGeometry Figures="M19.5 12L12 16 4.5 12" FillRule="EvenOdd"/>
+                    </Path.Data>
+                </Path>
+                <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path131" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ContentControl, Mode=FindAncestor}}" StrokeLineJoin="Round" StrokeStartLineCap="Round" StrokeEndLineCap="Round">
+                    <Path.Data>
+                        <PathGeometry Figures="M19.5 15.5L12 19.5 4.5 15.5" FillRule="EvenOdd"/>
+                    </Path.Data>
+                </Path>
+            </Canvas>
+        </Canvas>
+    </Viewbox>
+
+    <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" x:Key="IconSettings">
+        <Canvas Name="svg63" Width="24" Height="24">
+            <Canvas.RenderTransform>
+                <TranslateTransform X="0" Y="0"/>
+            </Canvas.RenderTransform>
+            <Canvas.Resources>
+                <!--Tag feColorMatrix not supported, replaced with empty blur-->
+                <BlurEffect xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="prefix__a" Radius="0"/>
+            </Canvas.Resources>
+            <!--Unknown tag: metadata-->
+            <!--Unknown tag: sodipodi:namedview-->
+            <Canvas Name="g61" Effect="{StaticResource prefix__a}">
+                <Canvas.RenderTransform>
+                    <TranslateTransform X="-244"/>
+                </Canvas.RenderTransform>
+                <Canvas Name="g59">
+                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path55" StrokeThickness="1.5" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button, Mode=FindAncestor}}">
+                        <Path.Data>
+                            <PathGeometry Figures="M12 10c1.104 0 2 .896 2 2s-.896 2-2 2-2-.896-2-2 .896-2 2-2z" FillRule="EvenOdd"/>
+                        </Path.Data>
+                        <Path.RenderTransform>
+                            <TranslateTransform X="244"/>
+                        </Path.RenderTransform>
+                    </Path>
+                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path57" StrokeThickness="1.5" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button, Mode=FindAncestor}}">
+                        <Path.Data>
+                            <PathGeometry Figures="M14.97 6.804c-.68-.396-1.032-1.135-.978-1.874.027-.363-.169-.717-.523-.786C12.993 4.051 12.503 4 12 4c-.503 0-.993.051-1.469.144-.354.069-.55.423-.523.786.054.739-.298 1.478-.977 1.874-.68.396-1.49.335-2.097-.083-.297-.205-.7-.211-.934.065-.637.749-1.137 1.62-1.466 2.572-.119.343.086.693.41.851.661.322 1.117 1 1.117 1.791 0 .791-.456 1.47-1.116 1.791-.325.159-.53.508-.41.851.328.953.828 1.823 1.465 2.572.235.276.637.271.934.066.607-.419 1.418-.479 2.097-.083.679.395 1.031 1.134.977 1.873-.027.363.169.718.523.787.476.093.966.143 1.469.143.503 0 .993-.05 1.469-.143.354-.069.55-.424.523-.787-.054-.739.298-1.478.977-1.873.68-.396 1.49-.336 2.096.083.298.205.7.21.935-.066.637-.749 1.137-1.619 1.466-2.572.119-.343-.086-.692-.41-.851-.661-.321-1.117-1-1.117-1.791 0-.791.456-1.469 1.116-1.791.325-.158.53-.508.41-.851-.328-.952-.828-1.823-1.465-2.572-.235-.276-.637-.27-.935-.065-.606.418-1.417.479-2.096.083z" FillRule="EvenOdd"/>
+                        </Path.Data>
+                        <Path.RenderTransform>
+                            <TranslateTransform X="244"/>
+                        </Path.RenderTransform>
+                    </Path>
+                </Canvas>
+            </Canvas>
+        </Canvas>
+    </Viewbox>
+ 
+    <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" x:Key="LockIcon">
+        <Canvas Name="svg105" Width="24" Height="24">
+            <Canvas.RenderTransform>
+                <TranslateTransform X="0" Y="0"/>
+            </Canvas.RenderTransform>
+            <Canvas.Resources>
+                <!--Tag feColorMatrix not supported, replaced with empty blur-->
+                <BlurEffect xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="prefix__a" Radius="0"/>
+            </Canvas.Resources>
+            <!--Unknown tag: metadata-->
+            <!--Unknown tag: sodipodi:namedview-->
+            <Canvas Name="g103" Effect="{StaticResource prefix__a}">
+                <Canvas.RenderTransform>
+                    <TranslateTransform X="-8" Y="-8"/>
+                </Canvas.RenderTransform>
+                <Canvas Name="g101">
+                    <Canvas.RenderTransform>
+                        <TranslateTransform X="8" Y="8"/>
+                    </Canvas.RenderTransform>
+                    <Rectangle xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Canvas.Left="5.75" Canvas.Top="10.75" Width="12.5" Height="8.5" RadiusX="2" RadiusY="2" Name="rect95" StrokeThickness="1.5" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button, Mode=FindAncestor}}"/>
+                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path97" StrokeThickness="1.5" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button, Mode=FindAncestor}}">
+                        <Path.Data>
+                            <PathGeometry Figures="M12 4.75c.897 0 1.71.364 2.298.952.588.588.952 1.4.952 2.298h0v2.75h-6.5V8c0-.897.364-1.71.952-2.298.588-.588 1.4-.952 2.298-.952z" FillRule="EvenOdd"/>
+                        </Path.Data>
+                    </Path>
+                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path99" StrokeThickness="1.5" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button, Mode=FindAncestor}}" StrokeStartLineCap="Round" StrokeEndLineCap="Round">
+                        <Path.Data>
+                            <PathGeometry Figures="M12 14L12 16" FillRule="EvenOdd"/>
+                        </Path.Data>
+                    </Path>
+                </Canvas>
+            </Canvas>
+        </Canvas>
+    </Viewbox>
+
+    <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" x:Key="SyncIcon">
+        <Canvas Name="svg239" Width="24" Height="24">
+            <Canvas.RenderTransform>
+                <TranslateTransform X="0" Y="0"/>
+            </Canvas.RenderTransform>
+            <Canvas.Resources/>
+            <!--Unknown tag: metadata-->
+            <!--Unknown tag: sodipodi:namedview-->
+            <Canvas Name="g237">
+                <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path231" StrokeThickness="1.5" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ContentControl, Mode=FindAncestor}}" StrokeLineJoin="Round" StrokeStartLineCap="Round" StrokeEndLineCap="Round">
+                    <Path.Data>
+                        <PathGeometry Figures="M18.027 15.979c.895-.685 1.473-1.765 1.473-2.979 0-2.072-1.679-3.75-3.75-3.75-.109 0-.215.007-.321.016-.769-2.192-2.85-3.766-5.304-3.766C7.018 5.5 4.5 8.018 4.5 11.125c0 1.226.392 2.361 1.059 3.285" FillRule="EvenOdd"/>
+                    </Path.Data>
+                </Path>
+                <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path233" StrokeThickness="1.5" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ContentControl, Mode=FindAncestor}}" StrokeLineJoin="Round" StrokeStartLineCap="Round" StrokeEndLineCap="Round">
+                    <Path.Data>
+                        <PathGeometry Figures="M-1.5 1.5L1.5 4.5 4.5 1.5" FillRule="EvenOdd"/>
+                    </Path.Data>
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <MatrixTransform Matrix="0 -1 -1 0 4.5 4.5"/>
+                            <MatrixTransform Matrix="0 1 1 0 9 11.5"/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+                <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path235" StrokeThickness="1.5" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ContentControl, Mode=FindAncestor}}" StrokeStartLineCap="Round" StrokeEndLineCap="Round">
+                    <Path.Data>
+                        <PathGeometry Figures="M0 3L7.001 3" FillRule="EvenOdd"/>
+                    </Path.Data>
+                    <Path.RenderTransform>
+                        <MatrixTransform Matrix="0 1 1 0 9 11.5"/>
+                    </Path.RenderTransform>
+                </Path>
+            </Canvas>
+        </Canvas>
+    </Viewbox>
+
+    <Viewbox x:Key="Logo" x:Shared="false"  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" >
+        <Canvas Name="svg319" Width="52" Height="16">
+            <Canvas.RenderTransform>
+                <TranslateTransform X="0" Y="0"/>
+            </Canvas.RenderTransform>
+            <Canvas.Resources>
+                <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="prefix__b" Fill="#000000" x:Key="prefix__b">
+                    <Path.Data>
+                        <PathGeometry Figures="M0.159 0.027L14 0.027 14 12.327 0.159 12.327z" FillRule="NonZero"/>
+                    </Path.Data>
+                </Path>
+                <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="prefix__d" Fill="#000000" x:Key="prefix__d">
+                    <Path.Data>
+                        <PathGeometry Figures="M0 0L16.852 0 16.852 16 0 16z" FillRule="NonZero"/>
+                    </Path.Data>
+                </Path>
+                <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="prefix__f" Fill="#000000" x:Key="prefix__f">
+                    <Path.Data>
+                        <PathGeometry Figures="M0.354 0L6.491 0 6.491 12.192 0.354 12.192z" FillRule="NonZero"/>
+                    </Path.Data>
+                </Path>
+                <!--Tag feColorMatrix not supported, replaced with empty blur-->
+                <BlurEffect xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="prefix__a" Radius="0"/>
+            </Canvas.Resources>
+            <!--Unknown tag: metadata-->
+            <!--Unknown tag: sodipodi:namedview-->
+            <Canvas Name="g317" Effect="{StaticResource prefix__a}">
+                <Canvas.RenderTransform>
+                    <TranslateTransform X="-32" Y="-36"/>
+                </Canvas.RenderTransform>
+                <Canvas Name="g315">
+                    <Canvas.RenderTransform>
+                        <TranslateTransform X="32" Y="36"/>
+                    </Canvas.RenderTransform>
+                    <Canvas Name="g299">
+                        <Canvas.RenderTransform>
+                            <TranslateTransform X="38"/>
+                        </Canvas.RenderTransform>
+                        <!--Unknown tag: mask-->
+                        <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path297" Fill="#FF40d7ff">
+                            <Path.Data>
+                                <PathGeometry Figures="M13.76 5.735c-.16-.161-.358-.242-.595-.242-.154 0-.302.033-.445.099-.142.066-.344.194-.604.385L10.16 7.43l2.35-5.735.09-.233c.094-.215.142-.412.142-.592 0-.239-.087-.44-.258-.6-.172-.162-.382-.243-.631-.243-.569 0-.996.329-1.28.987l-.089.233L7.63 8.256c-.647 1.547-2.148 1.971-2.61 1.971-.215 0-.449-.003-.62-.004h-.543c-.202 0-.415-.016-.64-.045-.225-.03-.39-.063-.497-.099-.344-.155-.516-.49-.516-1.004 0-.252.041-.49.124-.718.083-.227.196-.43.338-.61.142-.18.305-.323.489-.43.184-.108.37-.162.56-.162.166 0 .305.057.418.17.112.114.162.255.15.422v.394c-.011.204.057.377.205.521.148.144.34.215.578.215.343 0 .622-.137.835-.412.214-.275.32-.622.32-1.04 0-.635-.21-1.142-.63-1.525-.422-.383-.976-.574-1.663-.574-.51 0-.992.107-1.448.322-.457.216-.857.509-1.2.88-.344.37-.617.8-.818 1.29C.259 8.31.159 8.824.159 9.362c0 .42.059.799.178 1.14.118.34.287.63.506.87.22.239.48.427.782.564.302.138.631.207.987.207h1.41c.036 0 .072-.002.108-.005v.005H5.15c1.51 0 3.4-.969 4.235-2.75.05-.107.072-.18.116-.29l.145-.362 2.009 3.049.106.161c.154.252.368.377.64.377.143 0 .279-.03.41-.09.13-.06.245-.137.346-.233.1-.095.18-.203.24-.323.059-.12.089-.245.089-.376 0-.108-.018-.204-.054-.288-.035-.083-.106-.209-.213-.376l-1.333-2.117 1.28-.968c.331-.24.554-.443.666-.61.113-.167.17-.37.17-.61 0-.239-.08-.44-.24-.6" FillRule="EvenOdd"/>
+                            </Path.Data>
+                        </Path>
+                    </Canvas>
+                    <!--Unknown tag: mask-->
+                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path304" Fill="#FF40d7ff">
+                        <Path.Data>
+                            <PathGeometry Figures="M13.202 3.892h-.688L13.22 2.1h.582c.235 0 .423.056.564.17.14.114.211.272.211.475 0 .766-.458 1.148-1.374 1.148m3.267.296c.255-.496.383-1.031.383-1.605 0-.885-.264-1.536-.791-1.955C15.533.209 14.712 0 13.599 0h-3.537c-.38 0-.703.12-.97.359-.266.239-.4.532-.4.878 0 .55.32.838.96.862h1.174l-3.004 7.48c-.107.275-.223.547-.347.816-.125.269-.246.523-.365.762-.201.407-.379.738-.533.996-.154.256-.308.469-.462.636-.557.598-1.15.897-1.778.897-.58 0-1.04-.182-1.377-.547-.338-.365-.507-.858-.507-1.48 0-.538.11-1.046.33-1.525.218-.478.517-.899.897-1.264.379-.365.826-.66 1.342-.888.515-.227 1.075-.359 1.68-.394.699-.037 1.187-.144 1.466-.324.278-.179.418-.466.418-.86 0-.347-.142-.616-.427-.808-.284-.19-.687-.287-1.208-.287-.937 0-1.826.177-2.667.53-.841.353-1.58.828-2.213 1.425-.634.598-1.138 1.292-1.51 2.081-.374.79-.56 1.627-.56 2.512 0 .621.097 1.186.292 1.694.196.509.474.945.836 1.31.361.365.797.646 1.306.843.51.197 1.073.296 1.69.296 1.172 0 2.186-.359 3.039-1.077.853-.717 1.605-1.84 2.257-3.372.095-.215.216-.508.365-.878l.435-1.095 1.458-3.587h1.19c.605 0 1.106-.047 1.503-.144.397-.095.743-.244 1.04-.448.45-.31.802-.714 1.057-1.21" FillRule="EvenOdd"/>
+                        </Path.Data>
+                    </Path>
+                    <Canvas Name="g311">
+                        <Canvas.RenderTransform>
+                            <TranslateTransform X="15"/>
+                        </Canvas.RenderTransform>
+                        <!--Unknown tag: mask-->
+                        <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path309" Fill="#FF40d7ff">
+                            <Path.Data>
+                                <PathGeometry Figures="M3.891 10.273h-1.12L6.26 1.668l.107-.233c.082-.227.124-.43.124-.61 0-.227-.086-.421-.258-.583C6.061.081 5.857 0 5.62 0c-.581 0-1.007.329-1.28.987l-.089.233L.62 10.147c-.083.192-.148.371-.195.539-.048.167-.071.31-.071.43 0 .323.13.583.391.78.26.198.598.296 1.013.296h1.76c.344 0 .64-.11.889-.331.249-.222.373-.488.373-.799 0-.502-.296-.765-.889-.789" FillRule="EvenOdd"/>
+                            </Path.Data>
+                        </Path>
+                    </Canvas>
+                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path313" Fill="#FF40d7ff">
+                        <Path.Data>
+                            <PathGeometry Figures="M24.828 9.302c-.154.338-.344.591-.569.758-.107.095-.219.153-.338.178-.118.024-.284.035-.498.035-.734 0-1.102-.327-1.102-.981 0-.261.048-.517.143-.767.094-.249.222-.469.382-.659.16-.19.343-.342.551-.454.207-.114.423-.17.649-.17.296 0 .539.101.728.303.19.202.285.457.285.767 0 .32-.077.65-.231.99m1.475-3.118c-.26-.252-.572-.449-.933-.593-.362-.143-.756-.215-1.182-.215-.533 0-1.037.111-1.511.332-.474.221-.895.518-1.262.888-.368.37-.658.804-.871 1.3-.213.497-.32 1.014-.32 1.552 0 .502.104.966.31 1.39.208.425.496.763.863 1.014.202.131.424.221.667.268.242.049.625.072 1.146.072.545 0 .969-.029 1.271-.089.302-.06.584-.173.845-.341.26-.168.5-.383.72-.646.219-.262.408-.55.568-.861.16-.311.285-.64.374-.987.088-.347.133-.693.133-1.04 0-.418-.071-.801-.213-1.147-.143-.348-.344-.647-.605-.897M32.4 5.502h-.48l.088-.16c.072-.156.125-.309.16-.458.036-.15.054-.278.054-.386 0-.239-.083-.436-.25-.591-.165-.156-.372-.234-.621-.234-.57 0-.99.33-1.262.987l-.107.233-.23.609h-.605c-.344 0-.64.11-.888.332-.25.22-.374.487-.374.798 0 .526.367.79 1.102.79L27.974 9.95l-.16.377c-.107.25-.16.49-.16.717 0 .347.127.625.382.834.255.21.602.314 1.04.314h1.76c.344 0 .64-.11.889-.331.249-.222.373-.488.373-.799 0-.502-.296-.765-.889-.789h-1.173l1.156-2.852h.835c.344 0 .64-.114.889-.34.249-.228.373-.497.373-.808 0-.514-.296-.771-.889-.771M36.595 10.273h-1.191l1.788-4.5.088-.252c.095-.215.143-.412.143-.592 0-.238-.086-.439-.258-.6-.172-.162-.382-.242-.631-.242-.593 0-1.025.328-1.298.986l-.089.233-1.982 4.967c-.072.192-.12.332-.143.422-.024.09-.035.194-.035.314 0 .382.142.675.426.879.285.203.694.304 1.227.304h1.582c.343 0 .64-.11.889-.331.249-.222.373-.488.373-.799 0-.502-.296-.765-.889-.789M38.976 1.346c0-.351-.12-.648-.36-.89-.241-.244-.535-.365-.884-.365-.336 0-.621.121-.856.364-.234.243-.351.534-.351.873 0 .34.12.63.36.873.24.242.529.364.865.364.349 0 .64-.119.874-.355.235-.236.352-.524.352-.864" FillRule="EvenOdd"/>
+                        </Path.Data>
+                    </Path>
+                </Canvas>
+            </Canvas>
+        </Canvas>
+    </Viewbox>
+
+    <Viewbox x:Key="IconSearch" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" >
+        <Canvas Name="svg357" Width="16" Height="16">
+            <Canvas.RenderTransform>
+                <TranslateTransform X="0" Y="0"/>
+            </Canvas.RenderTransform>
+            <Canvas.Resources>
+                <!--Tag feColorMatrix not supported, replaced with empty blur-->
+                <BlurEffect xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="prefix__a" Radius="0"/>
+            </Canvas.Resources>
+            <!--Unknown tag: metadata-->
+            <!--Unknown tag: sodipodi:namedview-->
+            <Canvas Name="g355" Effect="{StaticResource prefix__a}">
+                <Canvas.RenderTransform>
+                    <TranslateTransform X="-4" Y="-4"/>
+                </Canvas.RenderTransform>
+                <Canvas Name="g353">
+                    <Canvas.RenderTransform>
+                        <TranslateTransform X="4" Y="4"/>
+                    </Canvas.RenderTransform>
+                    <Ellipse xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Canvas.Left="3.2" Canvas.Top="3.2" Width="7.7" Height="7.7" Name="circle349" Stroke="#FFFFFFFF"/>
+                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path351" Stroke="#FFFFFFFF" StrokeStartLineCap="Round" StrokeEndLineCap="Round">
+                        <Path.Data>
+                            <PathGeometry Figures="M10 10L12.333 12.333" FillRule="EvenOdd"/>
+                        </Path.Data>
+                    </Path>
+                </Canvas>
+            </Canvas>
+        </Canvas>
+    </Viewbox>
+
+    <Viewbox x:Key="OrderIcon" x:Shared="false" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" >
+        <Canvas Name="svg391" Width="24" Height="24">
+            <Canvas.RenderTransform>
+                <TranslateTransform X="0" Y="0"/>
+            </Canvas.RenderTransform>
+            <Canvas.Resources/>
+            <!--Unknown tag: metadata-->
+            <!--Unknown tag: sodipodi:namedview-->
+            <Canvas Name="g389">
+                <Canvas Name="g385">
+                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path381" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button, Mode=FindAncestor}}" StrokeLineJoin="Round" StrokeStartLineCap="Round" StrokeEndLineCap="Round">
+                        <Path.Data>
+                            <PathGeometry Figures="M0.95 2.25L3.2 0 5.45 2.25" FillRule="EvenOdd"/>
+                        </Path.Data>
+                        <Path.RenderTransform>
+                            <MatrixTransform Matrix="1 0 0 -1 12.8 17.5"/>
+                        </Path.RenderTransform>
+                    </Path>
+                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path383" StrokeThickness="1.2" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button, Mode=FindAncestor}}" StrokeStartLineCap="Round" StrokeEndLineCap="Round">
+                        <Path.Data>
+                            <PathGeometry Figures="M0.5 3.2L5.9 3.2" FillRule="EvenOdd"/>
+                        </Path.Data>
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <!--<RotateTransform Angle="90 3.2 3.2"/>-->
+                                <MatrixTransform Matrix="1 0 0 -1 12.8 17.5"/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                </Canvas>
+                <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path387" StrokeThickness="1.2" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button, Mode=FindAncestor}}" StrokeStartLineCap="Round" StrokeEndLineCap="Round">
+                    <Path.Data>
+                        <PathGeometry Figures="M6 6.6L18 6.6M6 12L12 12M6 17.4L11 17.4" FillRule="EvenOdd"/>
+                    </Path.Data>
+                </Path>
+            </Canvas>
+        </Canvas>
+    </Viewbox>
+
+    <Viewbox x:Key="DownloadIcon"  x:Shared="false" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
+        <Canvas Name="Capa_1" Canvas.Left="0" Canvas.Top="0" Width="485" Height="485">
+            <Canvas.RenderTransform>
+                <TranslateTransform X="0" Y="0"/>
+            </Canvas.RenderTransform>
+            <Canvas.Resources/>
+            <!--Unknown tag: metadata-->
+            <!--Unknown tag: sodipodi:namedview-->
+            <Canvas Name="g8">
+                <Canvas Name="g6">
+                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path2" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button, Mode=FindAncestor}}">
+                        <Path.Data>
+                            <PathGeometry Figures="M233 378.7c2.6 2.6 6.1 4 9.5 4s6.9-1.3 9.5-4l107.5-107.5c5.3-5.3 5.3-13.8 0-19.1c-5.3-5.3-13.8-5.3-19.1 0L256 336.5    v-323C256 6 250 0 242.5 0S229 6 229 13.5v323l-84.4-84.4c-5.3-5.3-13.8-5.3-19.1 0s-5.3 13.8 0 19.1L233 378.7z" FillRule="NonZero"/>
+                        </Path.Data>
+                    </Path>
+                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button, Mode=FindAncestor}}">
+                        <Path.Data>
+                            <PathGeometry Figures="M426.5 458h-368C51 458 45 464 45 471.5S51 485 58.5 485h368c7.5 0 13.5-6 13.5-13.5S434 458 426.5 458z" FillRule="NonZero"/>
+                        </Path.Data>
+                    </Path>
+                </Canvas>
+            </Canvas>
+            <Canvas Name="g10"/>
+            <Canvas Name="g12"/>
+            <Canvas Name="g14"/>
+            <Canvas Name="g16"/>
+            <Canvas Name="g18"/>
+            <Canvas Name="g20"/>
+            <Canvas Name="g22"/>
+            <Canvas Name="g24"/>
+            <Canvas Name="g26"/>
+            <Canvas Name="g28"/>
+            <Canvas Name="g30"/>
+            <Canvas Name="g32"/>
+            <Canvas Name="g34"/>
+            <Canvas Name="g36"/>
+            <Canvas Name="g38"/>
+        </Canvas> 
+    </Viewbox> 
+  
+    <Viewbox x:Key="IconList" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
+        <Canvas Name="svg477" Width="24" Height="24">
+            <Canvas.RenderTransform>
+                <TranslateTransform X="0" Y="0"/>
+            </Canvas.RenderTransform>
+            <Canvas.Resources>
+                <!--Tag feColorMatrix not supported, replaced with empty blur-->
+                <BlurEffect xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="prefix__a" Radius="0"/>
+            </Canvas.Resources>
+            <!--Unknown tag: metadata-->
+            <!--Unknown tag: sodipodi:namedview-->
+            <Canvas Name="g475" Effect="{StaticResource prefix__a}">
+                <Canvas.RenderTransform>
+                    <TranslateTransform X="-23"/>
+                </Canvas.RenderTransform>
+                <Canvas Name="g473">
+                    <Canvas.RenderTransform>
+                        <TranslateTransform X="23"/>
+                    </Canvas.RenderTransform>
+                    <Rectangle xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Canvas.Left="6.5" Canvas.Top="6.5" Width="12" Height="4" RadiusX="1" RadiusY="1" Name="rect469" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button, Mode=FindAncestor}}"/>
+                    <Rectangle xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Canvas.Left="6.5" Canvas.Top="13.5" Width="12" Height="4" RadiusX="1" RadiusY="1" Name="rect471" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button, Mode=FindAncestor}}"/>
+                </Canvas>
+            </Canvas>
+        </Canvas>
+    </Viewbox>
+    
+    <Viewbox x:Key="IconIcons" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
+        <Canvas Name="svg439" Width="24" Height="24">
+            <Canvas.RenderTransform>
+                <TranslateTransform X="0" Y="0"/>
+            </Canvas.RenderTransform>
+            <Canvas.Resources>
+                <!--Tag feColorMatrix not supported, replaced with empty blur-->
+                <BlurEffect xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="prefix__a" Radius="0"/>
+            </Canvas.Resources>
+            <!--Unknown tag: metadata-->
+            <!--Unknown tag: sodipodi:namedview-->
+            <Canvas Name="g437" Effect="{StaticResource prefix__a}">
+                <Canvas.RenderTransform>
+                    <TranslateTransform X="-23"/>
+                </Canvas.RenderTransform>
+                <Canvas Name="g435">
+                    <Canvas.RenderTransform>
+                        <TranslateTransform X="23"/>
+                    </Canvas.RenderTransform>
+                    <Rectangle xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Canvas.Left="6.5" Canvas.Top="6.5" Width="4" Height="4" RadiusX="1" RadiusY="1" Name="rect427" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button, Mode=FindAncestor}}"/>
+                    <Rectangle xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Canvas.Left="6.5" Canvas.Top="13.5" Width="4" Height="4" RadiusX="1" RadiusY="1" Name="rect429" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button, Mode=FindAncestor}}"/>
+                    <Rectangle xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Canvas.Left="13.5" Canvas.Top="6.5" Width="4" Height="4" RadiusX="1" RadiusY="1" Name="rect431" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button, Mode=FindAncestor}}"/>
+                    <Rectangle xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Canvas.Left="13.5" Canvas.Top="13.5" Width="4" Height="4" RadiusX="1" RadiusY="1" Name="rect433" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button, Mode=FindAncestor}}"/>
+                </Canvas>
+            </Canvas>
+        </Canvas>
+    </Viewbox>
+    
+    <Viewbox  x:Key="ChildIconTrack" x:Shared="false" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
+        <Canvas Name="svg13" Width="24" Height="24">
+            <Canvas.RenderTransform>
+                <TranslateTransform X="0" Y="0"/>
+            </Canvas.RenderTransform>
+            <Canvas.Resources>
+                <!--Tag feColorMatrix not supported, replaced with empty blur-->
+                <BlurEffect xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="prefix__a" Radius="0"/>
+            </Canvas.Resources>
+            <!--Unknown tag: metadata-->
+            <!--Unknown tag: sodipodi:namedview-->
+            <Canvas Name="g11" Effect="{StaticResource prefix__a}">
+                <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path7" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ContentControl, Mode=FindAncestor}}">
+                    <Path.Data>
+                        <PathGeometry Figures="M10.5 14.5V16c0 .414-.168.79-.44 1.06-.27.272-.646.44-1.06.44h0-1c-.414 0-.79-.168-1.06-.44-.272-.27-.44-.646-.44-1.06 0-.414.168-.79.44-1.06.27-.272.646-.44 1.06-.44h2.5zM17.5 12.5V14c0 .414-.168.79-.44 1.06-.27.272-.646.44-1.06.44h0-1c-.414 0-.79-.168-1.06-.44-.272-.27-.44-.646-.44-1.06 0-.414.168-.79.44-1.06.27-.272.646-.44 1.06-.44h2.5z" FillRule="EvenOdd"/>
+                    </Path.Data>
+                </Path>
+                <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path9" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ContentControl, Mode=FindAncestor}}" StrokeLineJoin="Round">
+                    <Path.Data>
+                        <PathGeometry Figures="M10.5 14.244L10.5 6.5 17.5 5.5 17.5 12.297" FillRule="EvenOdd"/>
+                    </Path.Data>
+                </Path>
+            </Canvas>
+        </Canvas>
+    </Viewbox>
+
+
+    <Viewbox x:Key="ChildIconFolder" x:Shared="false" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
+        <Canvas Name="svg11" Width="64" Height="64">
+            <Canvas.RenderTransform>
+                <TranslateTransform X="0" Y="0"/>
+            </Canvas.RenderTransform>
+            <Canvas.Resources>
+                <!--Tag feColorMatrix not supported, replaced with empty blur-->
+                <BlurEffect xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="prefix__a" Radius="0"/>
+            </Canvas.Resources>
+            <!--Unknown tag: metadata-->
+            <!--Unknown tag: sodipodi:namedview-->
+            <Canvas Name="g9" Effect="{StaticResource prefix__a}">
+                <Canvas.RenderTransform>
+                    <TranslateTransform X="-10"/>
+                </Canvas.RenderTransform>
+                <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path7" Fill="{DynamicResource ColorChildrenForeground}">
+                    <Path.Data>
+                        <PathGeometry Figures="M41.099 19.206h16.416c3.213 0 5.818 2.63 5.818 5.873v19.715c0 3.243-2.605 5.873-5.818 5.873h-31.03c-3.213 0-5.818-2.63-5.818-5.873V19.206c0-3.243 2.605-5.873 5.818-5.873h9.697c.648 0 1.254.327 1.613.872l3.304 5.001z" FillRule="NonZero"/>
+                    </Path.Data>
+                </Path>
+            </Canvas>
+        </Canvas>
+    </Viewbox>
+
+
+</ResourceDictionary>

@@ -1,0 +1,131 @@
+﻿<UserControl x:Class="Mdm.Windows.Desktop.Views.QueueSheetView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Mdm.Windows.Desktop.Views" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="local:QueueSheetView">
+            <Setter Property="Background" Value="{DynamicResource ColorMenuBackground}"></Setter>
+            <Setter Property="Foreground" Value="{DynamicResource ColorMenuForeground}"></Setter>
+        </Style> 
+
+        <Style x:Key="QueueSheetItemStyle" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Foreground" Value="{DynamicResource ColorQueueSheetForeground}"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Width" Value="285"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontFamily" Value="{StaticResource Filson}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border Name="Border" Padding="10,0,0,0" SnapsToDevicePixels="True" BorderBrush="{DynamicResource ColorQueueSheetBorder}" BorderThickness="0,0,0,1" Background="{DynamicResource ColorQueueSheetBackground}">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource ColorQueueSheetBackgroundSelected}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource ColorQueueSheetForegroundSelected}"/>
+                            </Trigger>
+                            <!--<Trigger Property="Button.IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource ColorQueueSheetBackgroundHover}"/>
+                            </Trigger>-->
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+ 
+
+        <Style TargetType="TextBlock" x:Key="PlatformTitle">
+            <Setter Property="FontSize" Value="18"/>
+            <!--<Setter Property="FontFamily" Value="pack://application:,,,/Assets/#FilsonSoftW03-Regular"/>-->
+            <Setter Property="FontFamily" Value="{StaticResource Filson}"/>
+            <Setter Property="Foreground" Value="{DynamicResource ColorQueueSheetForeground}"/>
+        </Style>
+
+
+       
+        
+        <Style TargetType="DockPanel" x:Key="QueueSheetFooterStyle">
+            <Setter Property="Background" Value="{DynamicResource ColorQueueSheetBackground}"/>
+            <Setter Property="MinHeight" Value="80"/>
+            <Setter Property="MaxHeight" Value="80"/>
+            <Setter Property="Margin" Value="0"/>
+        </Style>
+        
+    </UserControl.Resources>
+
+    <DockPanel LastChildFill="True">
+        <ContentControl DockPanel.Dock="Top" Content="{DynamicResource Logo}" MaxHeight="24" HorizontalAlignment="Left" Margin="20,36,5,5" />
+        
+        <!-- Header -->
+        <DockPanel LastChildFill="True" DockPanel.Dock="Top" Margin="10,2">
+            <Button Command="{Binding ShowSettingsCommand}" Style="{DynamicResource IconButtonStyle}" DockPanel.Dock="Right" VerticalAlignment="Center">
+                <ContentPresenter Content="{StaticResource IconSettings}"/>
+            </Button>
+            <TextBlock Text="{Binding UserName}" Style="{DynamicResource PlatformTitle}" DockPanel.Dock="Left" VerticalAlignment="Center"></TextBlock>
+        </DockPanel>
+        
+        <!-- Header 2-->
+        <DockPanel LastChildFill="True" DockPanel.Dock="Top" Margin="10,2">
+            <Button Command="{Binding SearchCommand}" Style="{DynamicResource IconBorderedButtonSearchStyle}"  DockPanel.Dock="Right">
+                <ContentPresenter Content="{StaticResource IconSearch}"/>
+            </Button>
+            <TextBox Text="{Binding SearchText,UpdateSourceTrigger=PropertyChanged}" 
+                     Style="{DynamicResource SearchBoxStyle}"                      
+                     DockPanel.Dock="Left"/>
+        </DockPanel>
+
+        <!-- Footer --> 
+        <DockPanel LastChildFill="True" Style="{DynamicResource QueueSheetFooterStyle}" DockPanel.Dock="Bottom">
+            <Separator DockPanel.Dock="Top" Background="{DynamicResource ColorSeparator}"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Bottom">
+                <Button Command="{Binding RefreshCommand}" Style="{DynamicResource IconButtonLargeStyle}" DockPanel.Dock="Right" >
+                    <ContentPresenter Content="{StaticResource SyncIcon}"/>
+                </Button>
+            </StackPanel>
+        </DockPanel> 
+        
+        <!-- List -->
+        <ListBox ItemsSource="{Binding List}" ItemContainerStyle="{DynamicResource QueueSheetItemStyle}" AllowDrop="True" 
+                 SelectionChanged="ListBox_SelectionChanged"
+                 ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                 ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                 SelectedItem="{Binding SelectedItem,UpdateSourceTrigger=PropertyChanged}">
+            <ListBox.Style>
+                <Style TargetType="ListBox">
+                    <Setter Property="BorderThickness" Value="0"></Setter>
+                    <Setter Property="Background" Value="Transparent"></Setter> 
+                </Style>
+            </ListBox.Style>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <DockPanel LastChildFill="True">
+                        <ContentControl DockPanel.Dock="Left" Content="{DynamicResource FolderIcon}" MaxHeight="24" VerticalAlignment="Center"/>
+                        <Button Command="{Binding DataContext.UnlockCommand, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}" 
+                                CommandParameter="{Binding}"
+                                DockPanel.Dock="Right"
+                                Style="{StaticResource IconButtonStyle}"
+                                Visibility="{Binding IsProtected, Converter={StaticResource booleanToVisibilityConverter}}"
+                                VerticalAlignment="Center">
+                            <ContentPresenter Content="{StaticResource LockIcon}"  />
+                        </Button>
+                        <!--<ContentControl DockPanel.Dock="Right" Content="{DynamicResource LockIcon}" Foreground="{DynamicResource ColorQueueSheetLockIcon}" Style="{DynamicResource IconContainer}" Visibility="{Binding IsProtected, Converter={StaticResource booleanToVisibilityConverter}}" />-->
+                        <TextBlock Text="{Binding Path=Name}" VerticalAlignment="Center" Padding="7"></TextBlock>
+                    </DockPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox> 
+    </DockPanel>
+</UserControl>
