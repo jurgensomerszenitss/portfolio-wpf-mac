@@ -1,6 +1,6 @@
 ﻿{
-  "apiRoot": "http://3.34.179.55",
+  "apiRoot": "",
   "database": "mdmdb.db",
-  "forgotPasswordUrl": "https://modoofindclient.s3.ap-northeast-2.amazonaws.com/",
+  "forgotPasswordUrl": "",
   "expires": 2
 }
